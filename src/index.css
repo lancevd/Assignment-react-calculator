@@ -1,0 +1,93 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.container {
+  max-width: 420px;
+  min-height: 80vh;
+  margin: 2rem auto;
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+button {
+  font-size: 2rem;
+  border: 1px solid #333;
+  cursor: pointer;
+}
+.modifiers button {
+  background-color: rgb(255, 0, 0);
+  color: #fff;
+}
+.operations button {
+  background-color: #ff5e00;
+  color: #fff;
+  width: 100px;
+}
+
+.operations button:hover, .modifiers button:hover {
+  background: #ccc;
+  color: #000;
+}
+
+.digits button {
+  background-color: #efefef;
+}
+
+.digits button:hover {
+  border: solid #ff5e00;
+}
+
+/* Calculator Layout */
+
+.container,
+.child-grid {
+  display: grid;
+}
+.container {
+  grid-template-areas:
+    "total total total total"
+    "modif modif modif oper"
+    "digit digit digit oper"
+    "digit digit digit oper"
+    "digit digit digit oper"
+    "digit digit digit oper";
+  grid-auto-columns: 1fr;
+}
+.show-input {
+  grid-area: total;
+  border: solid grey;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+.modifiers {
+  grid-area: modif;
+}
+.operations {
+  grid-area: oper;
+}
+.digits {
+  grid-area: digit;
+}
+
+.show-input {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.modifiers {
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.digits {
+  display: flex;
+  flex-wrap: wrap;
+}
+.digits button {
+  flex: 1 0 26%;
+}
